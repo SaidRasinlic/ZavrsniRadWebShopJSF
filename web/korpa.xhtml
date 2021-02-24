@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="korpa.css"/> 
+        <style>
+
+
+            .cijena {
+                /*background-color: #000033;transition-duration: 0.4s;border: 2px solid black; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+                /* Green */
+                border: none;
+                color: black;
+                padding: 15px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;              
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+            }
+
+            .cijena:after {
+                content: " KM";
+            }
+            .jedinicnacijena:after {
+              
+                content: " KM";
+            }
+            
+            .dugme {
+                background-color: black; /* Green */
+                border: none;
+                color: white;
+                padding: 10px 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 20px;
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                border-radius: 50%;
+
+            } 
+
+            .dugme:hover {
+                -ms-transform: scale(1.20); /* IE 9 */
+                -webkit-transform: scale(1.20); /* Safari 3-8 */
+                transform: scale(1.20); 
+            } 
+            
+            .potvrda {
+                background-color: #000; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 30px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                border: 2px solid black;
+                width:250px;
+            }
+
+            .potvrda:hover {
+                background-color: white;
+                color: black;
+            }
+            
+            .odustani{
+                font-size: 50px;
+                float:left;
+                margin-left: 225px;
+            }
+            
+            .dugme2 {
+                background-color: #000; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 30px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                border: 2px solid black;
+                width: 250px;
+            }
+
+
+            .dugme2:hover {
+                background-color: white;
+                color: black;
+            }
+
+            #mojakorpa {
+                margin-top: 30px;
+                margin-left: 230px;
+                font-size: 20px;
+            }
+            
+            .thpozadina {
+                background-color: #000;
+            }
+
+        </style>
+    </h:head>
+    <h:body>
+
+        <!--navigacija-->
+        <div id="center-nav">
+            <nav>     
+                <ul class="navbar">
+                    <li class="leftnav"><a class="active" href="faces/index.xhtml">Početna</a></li>
+                    <li class="leftnav"><a href="index.xhtml#Proizvodi">Proizvodi</a></li>
+                    <li class="leftnav"><a href="index.xhtml#Kontakt">Kontakt</a></li>
+                    <div id="cartlogo"><li class="rightnav"><abbr title="Korpa"><a href="faces/korpa.xhtml"><img src="resources/images/supermarket.png" class="logo-slika"/><span class="dot"><h:outputText style="text-align: center;font-size: 18px;" value="#{productManagedBean.totalItems}" id="logo-brojac-artikla"></h:outputText></span></a></abbr></li></div>
+                    <li class="rightnav" ><a href="faces/loginregister.xhtml"><abbr title="Login/Register"><img src="resources/images/account.png" class="account-logo"/></abbr></a></li>
+                </ul> 
+            </nav>
+        </div> 
+
+        <div id="mojakorpa">
+            <h3>Moja Šoping Korpa</h3>
+        </div>
+
+        <hr style="height:2px;border-width:0;color:#000;background-color:#000;width: 90%;"/>
+        <!--<div id="pozadinakorpa">
+                <div id="naslovkorpa">
+                    <h3>MOJA KORPA</h3>
+                </div>-->
+        <h:form>
+            <h:dataTable style="border-collapse: collapse" id="korpaId" value="#{productManagedBean.shoppingCartItems}" var="shoppingCartItem">
+
+                <h:column>
+                    <f:facet name="header"></f:facet> 
+                    <img style="width:135px;height:135px;" src="data:image/png;base64, #{shoppingCartItem.product.productImage}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                        #{shoppingCartItem.product.productName}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"><br/>&nbsp;<div class="thpozadina">Jedinična cijena</div><br/>&nbsp;</f:facet>
+                    <div class="jedinicnacijena"> #{shoppingCartItem.product.productPrice}</div>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"><br/>&nbsp;<div class="thpozadina">Količina</div><br/>&nbsp;</f:facet>
+                        #{shoppingCartItem.quantity}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"><br/>&nbsp;<div class="thpozadina">Ukupna cijena</div><br/>&nbsp;</f:facet>
+                    <div class="cijena">#{shoppingCartItem.totalPrice}</div>
+                </h:column> 
+
+                <h:column>     
+                    <f:facet name="header"><br/>&nbsp;<br/>&nbsp;</f:facet>
+                    <h:commandButton class="dugme" value="X"  actionListener="#{productManagedBean.delete(shoppingCartItem)}">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <f:ajax execute="@form" render="@form korpaId logo-brojac-artikla"/>
+                    </h:commandButton>
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+
+        <h:form>
+            <div id="potvrdikupovinu"><h:commandButton class="potvrda" value="Potrvrdi kupovinu"  actionListener="#{productManagedBean.submit()}">
+                    <f:ajax execute="@form" />
+                </h:commandButton></div>
+            <div class="odustani"> <h:commandButton actionListener="#{productManagedBean.nastaviKupovinu()}" class="dugme2" value="Nastavi kupovinu"></h:commandButton></div>
+        </h:form>
+
+    </h:body>
+</html>
+

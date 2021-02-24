@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="style.css"/> 
+    </h:head>
+    <h:body>
+        <div id="center-nav">
+            <nav>     
+                <ul class="navbar">
+                    <li class="leftnav"><a class="active" href="faces/index.xhtml">Početna</a></li>
+                    <li class="leftnav"><a href="#Proizvodi">Proizvodi</a></li>
+                    <li class="leftnav"><a href="#Kontakt">Kontakt</a></li>
+                    <li class="rightnav" style="position: relative;left:-10px;top:5px;"><h:form><h:commandLink action="#{loginManagedBean.logout}" value="Odjava"></h:commandLink></h:form></li>
+                    <div id="cartlogo"><li class="rightnav"><abbr title="Korpa"><a href="faces/korpa.xhtml"><img src="resources/images/supermarket.png" class="logo-slika"/><span class="dot"><h:outputText style="text-align: center;font-size: 18px;" value="#{productManagedBean.totalItems}" id="logo-brojac-artikla"></h:outputText></span></a></abbr></li></div>
+                    <li class="rightnav" ><a href="faces/loginregister.xhtml"><abbr title="Login/Register"><img src="resources/images/account.png" class="account-logo"/></abbr></a></li>
+                </ul> 
+            </nav>
+        </div> 
+        <h1 style="text-align: center;margin: 200px;padding: 50px;">USPJEŠNA KUPOVINA</h1>
+    </h:body>
+</html>
+

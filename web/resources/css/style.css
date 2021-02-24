@@ -1,0 +1,111 @@
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    z-index: 1;
+    width:100%;
+    top:0;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+
+}
+
+.account-logo{
+    position: relative;
+    top: -4px;
+}
+.logo-slika{
+    position: relative;
+    top: -4px;
+}
+.leftnav{
+    float: left;
+
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+table th{
+    background-color: #000033;
+    font-size: 20px;
+    border:none;
+    height: 50px;
+    color:white;
+    text-align: center;
+
+}
+table tr:hover{
+    background-color:#DCDCDC;
+}
+table td{
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+}
+.navbar li a:hover {
+    background-color: #111;
+}
+table {
+    width:100%;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+    border:none;
+    text-align: center;
+
+}
+.rightnav{
+    float: right;
+}
+
+
+body{
+    background-color: white;
+    margin:0;
+    padding-top: 50px; 
+}
+
+.kolicina{
+    width: fit-content; height: fit-content; border: solid black 2px; 
+}
+.b-content{position:relative;margin-top:0em;}
+.b-btn,.b-button{border:none;display:inline-block;outline:0;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+.b-btn,.b-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;} 
+.b-disabled,.b-btn:disabled,.b-button:disabled{cursor:not-allowed;opacity:0.3}.b-disabled *,:disabled *{pointer-events:none}
+.b-bar-block .b-dropdown-hover .b-button,.b-bar-block .b-dropdown-click .b-button{width:100%;text-align:left;padding:8px 16px}
+.b-button:hover{color:#000!important;background-color:#ccc!important}
+
+.b-content button {
+    position: absolute;
+    top: 32%;
+}
+
+.b-display-right {
+    right:0
+}
+.b-display-left {
+    left:0
+}
+
+.dot {
+    height: 20px;
+    width: 20px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top: -5px;
+}
+/* #ff0000,#669999,#5c8a8a,#000033 */

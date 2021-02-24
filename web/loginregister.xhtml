@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library = "css" name = "loginregister.css"/>
+        <h:outputStylesheet library="css" name="style.css"/> 
+    </h:head>
+    <h:body id="pozadina"> 
+        <!--navigacija-->
+        <div id="center-nav">
+            <nav>     
+                <ul class="navbar">
+                    <li class="leftnav"><a class="active" href="faces/index.xhtml">Početna</a></li>
+                    <li class="leftnav"><a href="index.xhtml#Proizvodi">Proizvodi</a></li>
+                    <li class="leftnav"><a href="index.xhtml#Kontakt">Kontakt</a></li>
+                    <div id="cartlogo"><li class="rightnav"><abbr title="Korpa"><a href="faces/korpa.xhtml"><img src="resources/images/supermarket.png" class="logo-slika"/><span class="dot"><h:outputText style="text-align: center;font-size: 18px;" value="#{productManagedBean.totalItems}" id="logo-brojac-artikla"></h:outputText></span></a></abbr></li></div>
+                    <li class="rightnav" ><a href="faces/loginregister.xhtml"><abbr title="Login/Register"><img src="resources/images/account.png" class="account-logo"/></abbr></a></li>
+                </ul> 
+            </nav>
+        </div> 
+
+
+        <div id="flexraspored">
+            <div class="form">
+
+                <div class="action">
+                    <span class="load show" id="login-action" onclick="openLoginPage()">Login</span>
+                    <span class="load" onclick="openRegPage()" id="reg-action">Register</span>
+                </div>
+
+                <!--OVO JE LOGIN FORMA -->
+                <h:form>
+                    <div class="login show-page">
+                        <h:inputText  p:placeholder="Korisničko ime" id="username" value="${loginManagedBean.username}" required="true"/> 
+                        <h:inputSecret  p:placeholder="Lozinka" id="password" value="${loginManagedBean.password}" required="true" />
+                        <h:commandButton class="buttonz" value="Prijavi se" action="${loginManagedBean.login()}"/><!--poziv login metode... -->
+                        <a href="#" onclick="openRegPage()">Kreiraj račun</a>
+                    </div>
+                </h:form>
+
+                <!--OVO JE REGISTER FORMA -->
+                <h:form>
+                    <div class="reg">
+                        <h:inputText  p:placeholder="Ime" id="name" value="${registerManagedBean.name}" required="true"/>                    
+                        <h:inputText p:placeholder="Prezime" id="surname" value="${registerManagedBean.surname}" required="true"/>
+                        <h:inputText  p:placeholder="Korisničko ime" id="username" value="${registerManagedBean.username}" required="true"/> 
+                        <h:inputSecret  p:placeholder="Lozinka" id="password" value="${registerManagedBean.password}" required="true" />
+                        <h:commandButton class="buttonz" value="Registruj se" action="${registerManagedBean.register()}"/><!--poziv register metode... -->
+                        <a href="#" onclick="openLoginPage()">Prijavi se</a>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+
+        <!--javascript-->
+        <script>
+            function openLoginPage() {
+                document.querySelector(".reg").classList.remove("show-page");
+                document.querySelector(".login").classList.add("show-page");
+                document.getElementById("login-action").classList.add("show");
+                document.getElementById("reg-action").classList.remove("show");
+            }
+            function openRegPage() {
+                document.querySelector(".reg").classList.add("show-page");
+                document.querySelector(".login").classList.remove("show-page");
+                document.getElementById("reg-action").classList.add("show");
+                document.getElementById("login-action").classList.remove("show");
+            }
+        </script>
+    </h:body>
+</html>

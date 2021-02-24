@@ -1,0 +1,130 @@
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    z-index: 1;
+    width:100%;
+    top:0;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+.account-logo{
+    position: relative;
+    top: -4px;
+}
+.logo-slika{
+    position: relative;
+    top: -4px;
+}
+.leftnav{
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+/** #000033 */
+table th{
+    background-color: #000;
+    font-size: 17px;
+    border:none;
+    color:white;
+    text-align: center;
+
+}
+table tr:hover{
+    background-color:#DCDCDC;
+}
+table td{
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+}
+.navbar li a:hover {
+    background-color: #111;
+}
+table {
+    width:70%;
+    align-content: center;
+    align-items: center;
+    height: 70%;
+    border:none;
+    text-align: center;
+    background-color: white;
+    margin-left:auto; 
+    margin-right:auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+.rightnav{
+    float: right;
+}
+
+
+body{
+    background-color: #F5F5F5;
+    margin:0;
+    padding-top: 50px; 
+    background-repeat: no-repeat;
+    margin: 0px;
+    background-size: 1900px 1080px;
+    box-sizing: border-box;
+    background-size: cover;
+
+}
+
+.kolicina{
+    width: fit-content; height: fit-content; border: solid black 2px; 
+}
+
+.b-display-right {
+    right:0
+}
+.b-display-left {
+    left:0
+}
+
+.dot {
+    height: 20px;
+    width: 20px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top: -5px;
+}
+
+#naslovkorpa{
+    text-align: center;
+    margin: auto;
+    color: #000033;
+    font-size: 18px;
+    position: relative;
+    width: 60%;
+    border: 3px solid #000033;
+    margin-bottom: 40px;
+    background-color: #CD853F;
+}
+
+#pozadinakorpa{
+    margin-top: 40px;
+}
+#potvrdikupovinu{
+    font-size: 50px;
+    float:right;
+    margin-right: 225px;
+}
+

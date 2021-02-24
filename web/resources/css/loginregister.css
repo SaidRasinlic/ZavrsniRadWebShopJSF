@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+body{
+    margin: 0px;   
+
+}
+#flexraspored{
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 80vh;
+}
+#pozadina{
+    background: url("/ZavrsniRadJava/resources/images/loginback.jpg"); 
+    background-repeat: no-repeat;
+    margin: 0px;
+    background-size: 1900px 1080px;
+    box-sizing: border-box;
+    background-size: cover;
+  
+}
+
+.form {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px 15px;
+    min-height: 250px;  box-sizing: border-box;
+}
+
+input {
+    display: block;
+    outline: none;
+    padding: 15px 10px;
+    margin: 30px;
+    border: solid 1px transparent;
+    background: none;
+    color: white;
+    width: 200px;
+    transition: border-color 1s;  box-sizing: border-box;
+}
+
+input:focus {
+    border-color: royalblue;  box-sizing: border-box;
+}
+
+.form button {
+    padding: 10px;
+    color: white;
+    background: royalblue;
+    border: none;
+    width: 200px;
+    margin-left: 30px;
+    transition: 0.2s;
+    cursor: pointer;  box-sizing: border-box;
+}
+.form button:hover {
+    background: rgb(114, 149, 255);  box-sizing: border-box;
+}
+
+.action {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    margin: 30px;
+    text-transform: uppercase;
+    font-weight: bold;  box-sizing: border-box;
+}
+.load {
+    position: relative;
+    margin: 2px 5px;
+    padding-bottom: 5px;
+    border-bottom: solid 2px transparent;
+    cursor: pointer;
+    transition: 0.5s;  box-sizing: border-box;
+}
+.load.show {
+    border-bottom-color: royalblue;  box-sizing: border-box;
+}
+
+.form a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 15px;
+    text-align: center;
+    transition: 0.5s;  box-sizing: border-box;
+}
+.form a:hover {
+    color: royalblue;  box-sizing: border-box;
+}
+
+.login {
+    display: none;  box-sizing: border-box;
+}
+.reg {
+    display: none;  box-sizing: border-box;
+}
+
+.show-page {
+    display: block;
+    animation: show-page 1s;  box-sizing: border-box;
+}
+
+@keyframes show-page {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.buttonz:hover {
+    background: rgb(114, 149, 255);  box-sizing: border-box;
+}
+
+.buttonz {
+    padding: 10px;
+    color: white;
+    background: royalblue;
+    border: none;
+    width: 200px;
+    margin-left: 30px;
+    transition: 0.2s;
+    cursor: pointer;  box-sizing: border-box;
+}

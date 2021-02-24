@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+
+        <h:outputStylesheet library="css" name="style.css"/> 
+
+        <style>
+            footer {
+                text-align: center;
+                padding: 3px;
+                background-color: #333;
+                color: white;
+                text-align: center;
+                font-size: 23px;
+            }
+
+            .button {
+                background-color: #000033; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 30px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                border: 2px solid black;
+                cursor: pointer;
+            } 
+
+            .button:hover {
+                background-color: white;
+                color: black;
+            }
+            .selectmenu:hover{
+                background-color: white;
+                color: black;
+            }
+            .selectmenu{
+                background-color: #000033; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+                border: 2px solid black;
+            }
+
+            .cijena{
+                /*background-color: #000033;transition-duration: 0.4s;border: 2px solid black; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+
+                border: none;
+                color: black;
+                padding: 15px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 18px;
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                cursor: default;
+
+            }
+            .cijena:after {
+                content: " KM";
+            }
+        </style>
+    </h:head>
+    <h:body >
+
+        <div id="center-nav">
+            <nav>     
+                <ul class="navbar">
+                    <li class="leftnav"><a href="faces/index.xhtml">Početna</a></li>
+                    <li class="leftnav"><a href="#Proizvodi">Proizvodi</a></li>
+                    <li class="leftnav"><a href="#Kontakt">Kontakt</a></li>
+                    <div id="cartlogo"><li class="rightnav"><abbr title="Korpa"><a href="faces/korpa.xhtml"><img src="resources/images/supermarket.png" class="logo-slika"/><span class="dot"><h:outputText style="text-align: center;font-size: 18px;" value="#{productManagedBean.totalItems}" id="logo-brojac-artikla"></h:outputText></span></a></abbr></li></div>
+                    <li class="rightnav"><a href="faces/loginregister.xhtml"><abbr title="Login/Register"><img src="resources/images/account.png" class="account-logo"/></abbr></a></li>
+                </ul> 
+            </nav>
+        </div> 
+
+        <div class="b-content">
+            <img class="mySlides" src="resources/images/laptops2020.jpg" alt="custom_html_banner3" style="width:100%;height: 38em;"/>
+            <img class="mySlides" src="resources/images/notebo.jpg" alt="custom_html_banner3" style="width:100%;height: 38em;"/>
+            <img class="mySlides" src="resources/images/maq.png" alt="custom_html_banner3" style="width:100%;height: 38em;"/>
+            <img class="mySlides" src="resources/images/unnamed2.png" alt="custom_html_banner3" style="width:100%;height: 38em;"/>
+            <img class="mySlides" src="resources/images/unnamed.png" alt="custom_html_banner3" style="width:100%;height: 38em;"/>
+            <img class="mySlides" src="resources/images/controller.jpg" alt="custom_html_banner4" style="width:100%;height: 38em;"/>
+            <img class="mySlides" src="resources/images/akcijeigrice.jpg" alt="custom_html_banner3" style="width:100%;height: 38em;"/>
+            <img class="mySlides" src="resources/images/gaming-accs-edited.jpg" alt="custom_html_banner3" style="width:100%;height: 38em;"/>
+            <img class="mySlides" src="resources/images/xboxban.jpg" alt="custom_html_banner3" style="width:100%;height: 38em;"/>
+            <img class="mySlides" src="resources/images/xboxgam.png" alt="custom_html_banner3" style="width:100%;height: 38em;"/>
+            <button class="b-button b-black b-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="b-button b-black b-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+        <div class="container">
+            <h:form id="Proizvodi">
+                <h:dataTable style="border-collapse: collapse" value="#{productManagedBean.allProducts}" var="product">
+                    <h:column>
+                        <f:facet name="header">Slike proizvoda</f:facet> 
+                        <img style="width:200px;height:200px;" src="data:image/png;base64, #{product.productImage}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Ime proizvoda</f:facet>
+                        <div style="cursor:default;">#{product.productName}</div>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Opis proizvoda</f:facet>
+                        <div style="cursor:default;">#{product.productDescription}</div>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Cijena<br/>proizvoda</f:facet>
+                        <div class="cijena"> #{product.productPrice}</div>
+                    </h:column>
+                    <div id="box">
+                        <h:column>
+                            <f:facet name="header">Količina<br/>proizvoda</f:facet>
+                            <h:selectOneMenu class="selectmenu" value="#{productManagedBean.quantity}" converter="javax.faces.Integer">
+                                <f:selectItem itemValue="1" itemLabel="1" />
+                                <f:selectItem itemValue="2" itemLabel="2" />
+                                <f:selectItem itemValue="3" itemLabel="3" />
+                                <f:selectItem itemValue="4" itemLabel="4" />
+                                <f:selectItem itemValue="5" itemLabel="5"/>
+                            </h:selectOneMenu>
+                        </h:column>
+                    </div>
+                    <h:column>
+                        <f:facet name="header">Dodaj<br/>proizvod</f:facet>
+                        <h:commandButton class="button" value="U korpu" actionListener="#{productManagedBean.addProductToCart(product)}">
+                            <f:ajax execute="@form" render="korpaId logo-brojac-artikla"/>
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+        <footer id="Kontakt">
+            <p>© 2020 Game-Universe | Sarajevo | BA<br/>
+                <a style="text-decoration: none" href="mailto:saidrasinlic.jr@gmail.com">game-universe@webshop.com</a></p>
+        </footer>
+        <h:outputScript library="js" name="scripting.js"/>
+    </h:body>
+</html>

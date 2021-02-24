@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <h:outputStylesheet library="css" name="credit.css"/>
+        <style>
+
+
+            .pozadina{
+                background-color: #F5F5F5;
+                background: url("/ZavrsniRadJava/resources/images/worldmap.jpg"); 
+                background-repeat: no-repeat;
+                margin: 0px;
+                background-size: 1920px 1080px;
+                box-sizing: border-box;
+                background-size: cover;
+            }
+
+            label{
+                color:black;
+                font-size: 18px;       
+                margin-bottom: 10px;
+                padding: 5px;
+            }
+
+            .potvrda{
+                color:black;
+                font-size: 23px;
+                margin-bottom: 20px;
+                display: block;
+                margin-left: -550px;
+                margin-top: -5px;
+                font-weight: bold;
+            }
+
+            #container {
+                background-color: white;
+                padding: 5px 20px 15px 20px;
+                border: 1px solid lightgrey;
+                border-radius: 3px;
+                opacity: 2.0;
+                width: 800px;
+                height: 600px;
+                margin: auto;
+                margin-top: 40px;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            select{
+                margin: 0px 5px 10px 0px;
+                padding: 5px;
+            }
+
+            #rokkartice{
+                text-align: center;
+                padding: 1px;
+            }
+
+            input[type=text] {
+                width: 270px;
+                margin-bottom: 20px;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                font-size: 15px;
+                text-align: center;
+            }
+            .icon-container {
+                padding: 7px 0;
+                font-size: 28px;
+                float: right;
+                position:relative;right:222px;top:-12px;
+            }
+            .button2{
+                float:left;
+                margin-left: 80px;
+                margin-top: 45px;
+                font-size: 20px;                
+                background-color: #000; /* black */
+                border: none;
+                color: white;
+                transition-duration: 0.4s;
+                border: 2px solid black;
+                padding: 5px 5px;
+            }
+
+            .button2:hover{
+                background-color: white;
+                color: black;
+            }
+
+            .button{
+                float:right;
+                margin-right: 80px;
+                margin-top: 45px;
+                font-size: 20px;
+                background-color: #000; /* black */
+                border: none;
+                color: white;
+                transition-duration: 0.4s;
+                border: 2px solid black;
+                padding: 5px 5px;
+            }
+
+            .button:hover {
+                background-color: white;
+                color: black;
+            }
+        </style>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+    </h:head>
+
+    <h:body class="pozadina">
+
+        <div id="center-nav">
+            <nav>     
+                <ul class="navbar">
+                    <li class="leftnav"><a class="active" href="faces/index.xhtml">Početna</a></li>
+                    <li class="leftnav"><a href="#Proizvodi">Proizvodi</a></li>
+                    <li class="leftnav"><a href="#Kontakt">Kontakt</a></li>
+                    <div id="cartlogo"><li class="rightnav"><abbr title="Korpa"><a href="faces/korpa.xhtml"><img src="resources/images/supermarket.png" class="logo-slika"/><span class="dot"><h:outputText style="text-align: center;font-size: 18px;" value="#{productManagedBean.totalItems}" id="logo-brojac-artikla"></h:outputText></span></a></abbr></li></div>
+                    <li class="rightnav"><a href="faces/loginregister.xhtml"><abbr title="Login/Register"><img src="resources/images/account.png" class="account-logo"/></abbr></a></li>
+                </ul> 
+            </nav>
+        </div> 
+
+        <div id="container">
+            <h:form>
+                <br/> 
+                <h:outputLabel class="potvrda">Potvrda kupovine <img style="width:45px;height:45px;position: relative;top: 15px;" src="resources/images/monitor.png"/> </h:outputLabel><br/>
+                <div class="center">
+                    <h:outputLabel for="name" class="label"></h:outputLabel>
+                    <h:inputText required="true" requiredMessage="Unesite ispravno vaše ime" id="name" p:placeholder="Unesite vaše ime"/>
+                    <h:outputLabel for="surname" class="label"></h:outputLabel>
+                    <h:inputText required="true" requiredMessage="Unesite ispravno vaše prezime" id="surname" p:placeholder="Unesite vaše prezime"/> 
+                </div>
+
+                <div style="text-align: center;">
+                    <h:outputLabel for="cardNumber" class="label" value="Podaci kreditne kartice"/>
+                    <div class="icon-container">
+                        <i class="fa fa-cc-visa" style="color:navy;"></i>
+                        <i class="fa fa-cc-amex" style="color:blue;"></i>
+                        <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                        <i class="fa fa-cc-discover" style="color:orange;"></i>
+                    </div>
+                    <h:inputText required="true" requiredMessage="Unesite ispravan format broja kartice" maxlength="19" p:placeholder="1234 1234 1234 1234" style="width:700px;text-align: center;font-size: 15px;"  id="cardNumber">
+                        <f:validateRegex pattern="((\d+) *(\d+) *(\d+) *(\d+))"/>
+                    </h:inputText>
+                </div>
+
+                <div id="rokkartice" style="text-align: center;">
+                    <h:selectOneMenu requiredMessage="Unesite mjesec isteka kartice" required="true" style="width:100px;font-size: 13.5px;font-weight: bold;" id="month" class="selectmenu" value="#">
+                        <f:selectItem itemLabel="MM"  noSelectionOption="true" itemValue="#{null}" />
+                        <f:selectItem itemValue="Januar" itemLabel="Januar" />
+                        <f:selectItem itemValue="Februar" itemLabel="Februar" />
+                        <f:selectItem itemValue="Mart" itemLabel="Mart" />
+                        <f:selectItem itemValue="April" itemLabel="April" />
+                        <f:selectItem itemValue="Maj" itemLabel="Maj" />
+                        <f:selectItem itemValue="Juni" itemLabel="Juni" />
+                        <f:selectItem itemValue="Juli" itemLabel="Juli" />
+                        <f:selectItem itemValue="August" itemLabel="August" />
+                        <f:selectItem itemValue="Septembar" itemLabel="Septembar" />
+                        <f:selectItem itemValue="Oktobar" itemLabel="Oktobar" />
+                        <f:selectItem itemValue="Novembar" itemLabel="Novembar" />
+                        <f:selectItem itemValue="Decembar" itemLabel="Decembar" />
+                    </h:selectOneMenu>
+                    &nbsp;
+
+                    <h:selectOneMenu requiredMessage="Unesite godinu isteka kartice" required="true" style="width:100px;font-size: 13.5px;font-weight: bold;" id="year" class="selectmenu" value="#">
+                        <f:selectItem itemLabel="YYYY"  noSelectionOption="true" itemValue="#{null}" />
+                        <f:selectItem itemValue="2025" itemLabel="2025" />
+                        <f:selectItem itemValue="2024" itemLabel="2024" />
+                        <f:selectItem itemValue="2023" itemLabel="2023" />
+                        <f:selectItem itemValue="2022" itemLabel="2022" />
+                        <f:selectItem itemValue="2021" itemLabel="2021" />
+                        <f:selectItem itemValue="2020" itemLabel="2020" />
+                    </h:selectOneMenu>  
+                </div>
+
+                <div style="text-align: center;padding: 3px;margin: 10px;">
+                    <h:inputText required="true" requiredMessage="Unesite ispravan vaš verifikacioni kod" id="cvv" p:placeholder="CVV" /> &nbsp;
+                    <h:inputText required="true" requiredMessage="Unesite ispravan poštanski broj" id="zip" p:placeholder="ZIP (poštanski broj)" />
+                </div>
+
+                <div style="text-align: center;padding: 3px;margin: 10px;">
+                    <h:inputText required="true" requiredMessage="Unesite ispravnu vaš grad" id="town" p:placeholder="Grad" /> &nbsp;
+                    <h:inputText required="true" requiredMessage="Unesite ispravnu vašu adresu" id="address" p:placeholder="Adresa" />
+                </div>
+
+                <h:commandButton class="button" value="Dovrši kupovinu" action="logout.xhtml" />
+            </h:form>
+
+            <h:form>
+                <h:commandButton class="button2" value="Nazad na korpu" action="#{productManagedBean.nazadNaKorpu()}"/>
+            </h:form>
+            <h:outputLabel style="position: relative;top: 12px;font-weight: bold;" value="Ukupna cijena: #{productManagedBean.total()} KM"/>
+        </div>
+    </h:body>
+</html>
